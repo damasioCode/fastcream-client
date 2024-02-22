@@ -1,0 +1,28 @@
+<section class="flex">
+
+  <div class="max-w-[50%] hidden lg:flex w-full justify-center items-center h-svh bg-orange-gradient p-4">
+    <div class="text-white max-w-[420px]">
+      <h1 class="text-3xl font-bold"> Welcome to Fastcream</h1>
+      <p class="text-base"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non laudantium doloribus nisi iure mollitia aspernatur nemo, eos corrupti ipsa dicta.</p>
+    </div>
+  </div>
+  
+  <div class="lg:max-w-[50%] w-full flex justify-center items-center h-svh p-6">
+    <div class="max-w-[420px] w-full">
+      <h2 class="text-3xl font-semi">Login</h2>
+      <p class="text-base mb-4">Welcome! Enter your email and password to log into your account.</p>
+
+      <form [formGroup]="formLogin" (ngSubmit)="submitFormLogin()">
+        <fieldset class="w-full mb-4  focus-within:border-rose-600">
+          <input class="w-full border rounded p-3" type="email" formControlName="email" placeholder="Email or Username">
+        </fieldset>
+        <fieldset class="w-full mb-4  focus-within:border-rose-600">
+          <input class="w-full border rounded p-3" type="password" formControlName="password" placeholder="Password">
+        </fieldset>
+        <button class="ml-auto p-4 w-full rounded bg-blue-600 disabled:bg-blue-400 text-white font-medium" [disabled]="formLogin.invalid">
+          Entrar na Conta
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,68 @@
+<app-header></app-header>
+<section class="flex">
+  <app-side-bar></app-side-bar>
+
+  <section class="container mx-auto px-4 mt-4">
+    <h1 class="text-2xl font-bold">Dashboard</h1>
+    <div class="flex gap-4 mt-4">
+      <div
+        class="flex justify-between items-center max-w-lg w-full p-4 border bg-blue-950 text-white rounded"
+      >
+        <div>
+          <h2 class="font-bold mb-1">Total de Pedidos</h2>
+          <p>Pedidos no geral</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold">{{dashboardKPI.total_orders}}</p>
+        </div>
+      </div>
+      <div
+        class="flex justify-between items-center max-w-lg w-full p-4 border bg-blue-600 text-white rounded"
+      >
+        <div>
+          <h2 class="font-bold mb-1">Clientes</h2>
+          <p>Total de clientes</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold">{{dashboardKPI.total_users}}</p>
+        </div>
+      </div>
+      <div
+        class="flex justify-between items-center max-w-lg w-full p-4 border bg-green-600 text-white rounded"
+      >
+        <div>
+          <h2 class="font-bold mb-1">Receita gerada</h2>
+          <p>Lucro total</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold">R$ {{dashboardKPI.total_monthly_income}}</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="mt-6 mx-auto grid grid-cols-3 grid-rows-1 gap-4 items-start">
+      <div class="col-span-2">
+        <h1 class="text-xl font-bold">Pedidos</h1>
+
+        <app-order-list></app-order-list>
+
+      </div>
+      <div class="col-start-3 p-6 bg-slate-50 rounded-lg border hidden">
+        <h1 class="text-xl font-bold">Últimos dias</h1>
+        <p>Pedidos nos últimos dias</p>
+        <canvas
+          baseChart
+          class="mt-4"
+          [data]="barChartData"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [type]="barChartType"
+        >
+        </canvas>
+        
+      </div>
+    </section>
+  </section>
+</section>
+
+
